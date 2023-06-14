@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import WorkExperience from "./components/WorkExperience";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
-import { IconButton } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 
 function App() {
   const homeRef = useRef(null);
@@ -33,10 +33,10 @@ function App() {
       setShowButton(window.scrollY > 0);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -61,15 +61,17 @@ function App() {
       <div ref={achievementsRef}>
         <Acheievements />
       </div>
-      {
-        showButton && <div
+      {showButton && (
+        <div
           style={{ marginLeft: "auto", position: "fixed", bottom: 0, right: 0 }}
         >
-          <IconButton onClick={scrollToTop}>
-            <ArrowCircleUpIcon style={{fontSize: "50px"}} />
-          </IconButton>
+          <Tooltip title="Back To Top">
+            <IconButton onClick={scrollToTop}>
+              <ArrowCircleUpIcon style={{ fontSize: "50px" }} />
+            </IconButton>
+          </Tooltip>
         </div>
-      }
+      )}
     </div>
   );
 }
