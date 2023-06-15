@@ -65,7 +65,7 @@ function App() {
         <div
           style={{ marginLeft: "auto", position: "fixed", bottom: 0, right: 0 }}
         >
-          <Tooltip title="Back To Top">
+          <Tooltip title="Back To Top" placement="left-start">
             <IconButton onClick={scrollToTop}>
               <ArrowCircleUpIcon style={{ fontSize: "50px" }} />
             </IconButton>
